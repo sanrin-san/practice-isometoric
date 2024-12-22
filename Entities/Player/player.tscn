@@ -678,6 +678,7 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+reset_on_save = false
 tree_root = SubResource("AnimationNodeStateMachine_gppb4")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Attack/blend_position = Vector2(-0.0314465, 0.689655)
