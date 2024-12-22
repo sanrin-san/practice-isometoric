@@ -747,7 +747,9 @@ position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_b8q01")
 debug_color = Color(0.330314, 0.613209, 0.329914, 0.262745)
 
-[node name="swordArea" type="Area2D" parent="."]
+[node name="swordArea" type="Area2D" parent="." groups=["Sword"]]
+collision_layer = 8
+collision_mask = 4
 
 [node name="swordCollider" type="CollisionShape2D" parent="swordArea"]
 position = Vector2(13, 2.5)

@@ -62,11 +62,7 @@ func player_idle(delta: float) -> void:
 		last_direction = input.normalized()
 		current_state = player_state.MOVE
 	else:
-		if velocity.length() > FRICTION * delta:
-			velocity -= velocity.normalized() * FRICTION * delta
-		else:
-			velocity = Vector2.ZERO
-		move_and_slide()
+		velocity = Vector2.ZERO
 		animation_state.travel("Idle")
 
 func sword_attack(delta: float) -> void:
