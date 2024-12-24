@@ -7,7 +7,7 @@
 script = ExtResource("1_3rmev")
 
 [node name="Heart" type="Sprite2D" parent="."]
-position = Vector2(16, 16)
+position = Vector2(24, 24)
 scale = Vector2(2, 2)
 texture = ExtResource("1_kuugi")
 hframes = 5
