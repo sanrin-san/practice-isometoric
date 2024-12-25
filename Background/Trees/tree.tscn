@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdd41n2i7he1v"]
+
+[ext_resource type="Texture2D" uid="uid://b5rgn6wx8fpp8" path="res://Background/Trees/trees.png" id="1_2l2bm"]
+[ext_resource type="PackedScene" uid="uid://rtio6a3ugfgh" path="res://Components/detector.tscn" id="2_3qaai"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tjccn"]
+radius = 5.0
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nglvr"]
+radius = 23.0
+height = 54.0
+
+[node name="Tree" type="StaticBody2D"]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2l2bm")
+offset = Vector2(0, -23)
+region_enabled = true
+region_rect = Rect2(98, 2, 50, 62)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_tjccn")
+
+[node name="detector" parent="." instance=ExtResource("2_3qaai")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="detector"]
+position = Vector2(0, -28)
+shape = SubResource("CapsuleShape2D_nglvr")
+debug_color = Color(0.817953, 0.352479, 0.525388, 0.42)
