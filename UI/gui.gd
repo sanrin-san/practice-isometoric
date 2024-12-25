@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @onready var heart: Sprite2D = $Heart
+@onready var coin_label: Label = $CoinLabel
 
 const heart_row_size: int = 8
 const heart_offset: int = 16
@@ -13,6 +14,8 @@ func _ready() -> void:
 		heart.add_child(new_heart)
 
 func _process(delta: float) -> void:
+	coin_label.text = var_to_str(PlayerData.coin_number)
+	
 	for heart_child in heart.get_children():
 		var index = heart_child.get_index()
 		var x = (index % heart_row_size) * heart_offset

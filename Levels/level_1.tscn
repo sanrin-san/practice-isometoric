@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://bodx6yc354egt"]
+[gd_scene load_steps=10 format=4 uid="uid://bodx6yc354egt"]
 
 [ext_resource type="PackedScene" uid="uid://baxoo3b33rgag" path="res://Entities/Player/player.tscn" id="1_0d5q2"]
 [ext_resource type="PackedScene" uid="uid://b88y1n7fo5k1n" path="res://UI/gui.tscn" id="1_nv252"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b4ixwm76qtqyi" path="res://Background/Houses/house_1.tscn" id="4_lt4w8"]
 [ext_resource type="PackedScene" uid="uid://cdd41n2i7he1v" path="res://Background/Trees/tree.tscn" id="7_5lc72"]
 [ext_resource type="PackedScene" uid="uid://d0jtwju8p00ga" path="res://Background/Rocks/rock_1.tscn" id="8_pad76"]
+[ext_resource type="PackedScene" uid="uid://b2pfkcrjkjjjv" path="res://Interactables/Coin/coin.tscn" id="9_fnt7g"]
 
 [node name="Level_1" type="Node2D"]
 y_sort_enabled = true
@@ -66,3 +67,15 @@ position = Vector2(224, 72)
 
 [node name="Rock_2" parent="Rocks" instance=ExtResource("8_pad76")]
 position = Vector2(184, 80)
+
+[node name="Coins" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Coin" parent="Coins" instance=ExtResource("9_fnt7g")]
+position = Vector2(160, 88)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("9_fnt7g")]
+position = Vector2(148, 96)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("9_fnt7g")]
+position = Vector2(128, 104)
