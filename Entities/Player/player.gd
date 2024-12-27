@@ -77,3 +77,12 @@ func set_animation_state(forced_direction: Vector2 = Vector2.ZERO) -> void:
 	animation_tree.set("parameters/Idle/blend_position", direction)
 	animation_tree.set("parameters/Move/blend_position", direction)
 	animation_tree.set("parameters/Attack/blend_position", direction)
+
+func flash() -> void:
+	$Sprite2D.material.set_shader_parameter("flash_modifier", 1)
+	await get_tree().create_timer(0.3).timeout
+	$Sprite2D.material.set_shader_parameter("flash_modifier", 0)
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Enemy"):
+		flash()

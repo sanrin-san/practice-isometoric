@@ -1,7 +1,13 @@
-[gd_scene load_steps=52 format=3 uid="uid://baxoo3b33rgag"]
+[gd_scene load_steps=54 format=3 uid="uid://baxoo3b33rgag"]
 
 [ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_3psyh"]
 [ext_resource type="Texture2D" uid="uid://bogx7tr8ohen3" path="res://Entities/Player/isometric_player_1.png" id="1_vy0me"]
+[ext_resource type="Shader" path="res://Shader/hurt.gdshader" id="2_igjgb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pql2f"]
+shader = ExtResource("2_igjgb")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_modifier = 0.0
 
 [sub_resource type="Animation" id="Animation_5p0m5"]
 length = 0.001
@@ -720,10 +726,11 @@ size = Vector2(20, 25)
 [sub_resource type="CircleShape2D" id="CircleShape2D_kiiij"]
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
-collision_mask = 2
+collision_mask = 18
 script = ExtResource("1_3psyh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_pql2f")
 texture = ExtResource("1_vy0me")
 offset = Vector2(0, -10)
 hframes = 8
@@ -764,3 +771,5 @@ debug_color = Color(0.80281, 0.360328, 0.547612, 0.25098)
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_kiiij")
 debug_color = Color(0.787659, 0.41432, 0.313794, 0.278431)
+
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
