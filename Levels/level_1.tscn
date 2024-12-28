@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bodx6yc354egt"]
+[gd_scene load_steps=12 format=4 uid="uid://bodx6yc354egt"]
 
 [ext_resource type="PackedScene" uid="uid://baxoo3b33rgag" path="res://Entities/Player/player.tscn" id="1_0d5q2"]
 [ext_resource type="PackedScene" uid="uid://b88y1n7fo5k1n" path="res://UI/gui.tscn" id="1_nv252"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d0jtwju8p00ga" path="res://Background/Rocks/rock_1.tscn" id="8_pad76"]
 [ext_resource type="PackedScene" uid="uid://b2pfkcrjkjjjv" path="res://Interactables/Coin/coin.tscn" id="9_fnt7g"]
 [ext_resource type="PackedScene" uid="uid://c1ep3kb6ax1ww" path="res://Entities/Enemies/enemy_1.tscn" id="10_f8xy7"]
+[ext_resource type="PackedScene" uid="uid://bycb2oa07fjfr" path="res://Interactables/Key/key.tscn" id="11_ltpqo"]
 
 [node name="Level_1" type="Node2D"]
 y_sort_enabled = true
@@ -91,3 +92,6 @@ y_sort_enabled = true
 
 [node name="Enemy_1" parent="Enemies" instance=ExtResource("10_f8xy7")]
 position = Vector2(120, 72)
+
+[node name="Key" parent="." instance=ExtResource("11_ltpqo")]
+position = Vector2(160, 160)
