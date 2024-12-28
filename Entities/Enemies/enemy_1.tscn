@@ -180,7 +180,7 @@ shape = SubResource("CircleShape2D_eatpb")
 debug_color = Color(0.852624, 0.293953, 0.579967, 0.42)
 
 [node name="hitbox" type="Area2D" parent="." groups=["Enemy"]]
-collision_layer = 0
+collision_layer = 16
 
 [node name="hitbox_collider" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(0, -5)

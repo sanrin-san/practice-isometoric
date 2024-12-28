@@ -724,6 +724,7 @@ radius = 5.0
 size = Vector2(20, 25)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kiiij"]
+radius = 8.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 18
@@ -766,6 +767,7 @@ shape = SubResource("RectangleShape2D_dcbyw")
 debug_color = Color(0.80281, 0.360328, 0.547612, 0.25098)
 
 [node name="hurtbox" type="Area2D" parent="."]
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
 position = Vector2(0, -8)
