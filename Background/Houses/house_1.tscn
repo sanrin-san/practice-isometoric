@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b4ixwm76qtqyi"]
+[gd_scene load_steps=13 format=3 uid="uid://b4ixwm76qtqyi"]
 
 [ext_resource type="Texture2D" uid="uid://cyopbbmygfyuf" path="res://Background/Houses/house_1.png" id="1_2mmke"]
 [ext_resource type="Script" path="res://Background/Houses/house_1.gd" id="1_jclse"]
@@ -47,6 +47,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [false, false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("change_level/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
 
 [sub_resource type="Animation" id="Animation_o6j3v"]
 resource_name = "Opened"
@@ -88,6 +100,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [true, true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("change_level/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, false]
+}
 
 [sub_resource type="Animation" id="Animation_oo5qk"]
 length = 0.001
@@ -127,6 +151,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("change_level/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o28wl"]
 _data = {
@@ -135,8 +171,8 @@ _data = {
 "RESET": SubResource("Animation_oo5qk")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lfenc"]
-radius = 15.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a0uuk"]
+size = Vector2(28.177, 22.8602)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hq7cq"]
 radius = 12.0
@@ -147,6 +183,9 @@ font_size = 12
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fysfj"]
+radius = 11.0454
+
 [node name="House_1" type="StaticBody2D"]
 y_sort_enabled = true
 collision_layer = 2
@@ -156,6 +195,7 @@ script = ExtResource("1_jclse")
 texture = ExtResource("1_2mmke")
 offset = Vector2(0, -40)
 hframes = 6
+frame = 5
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, -40)
@@ -179,8 +219,10 @@ autoplay = "Closed"
 collision_layer = 4
 
 [node name="door_collider" type="CollisionShape2D" parent="door"]
-position = Vector2(-28, 10)
-shape = SubResource("CircleShape2D_lfenc")
+position = Vector2(-30, 12)
+rotation = 0.471239
+shape = SubResource("RectangleShape2D_a0uuk")
+disabled = true
 
 [node name="player_detector" type="Area2D" parent="."]
 
@@ -199,5 +241,14 @@ offset_bottom = -5.0
 text = "Click \"E\" to open"
 label_settings = SubResource("LabelSettings_jb6bk")
 
+[node name="change_level" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="change_level"]
+position = Vector2(-31, 11)
+shape = SubResource("CircleShape2D_fysfj")
+debug_color = Color(0.404039, 0.594942, 0.362041, 0.42)
+
 [connection signal="body_entered" from="player_detector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="player_detector" to="." method="_on_player_detector_body_exited"]
+[connection signal="body_entered" from="change_level" to="." method="_on_change_level_body_entered"]

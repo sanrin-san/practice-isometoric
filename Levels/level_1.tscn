@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=4 uid="uid://bodx6yc354egt"]
+[gd_scene load_steps=14 format=4 uid="uid://bodx6yc354egt"]
 
 [ext_resource type="PackedScene" uid="uid://baxoo3b33rgag" path="res://Entities/Player/player.tscn" id="1_0d5q2"]
 [ext_resource type="PackedScene" uid="uid://b88y1n7fo5k1n" path="res://UI/gui.tscn" id="1_nv252"]
+[ext_resource type="Script" path="res://Levels/level_manager.gd" id="1_vk6mg"]
 [ext_resource type="TileSet" uid="uid://b3nir2ldt7vie" path="res://Tileset/field_tileset.tres" id="2_qebai"]
 [ext_resource type="PackedScene" uid="uid://lcqji0024hcb" path="res://Interactables/Crates/crates.tscn" id="2_uv2ro"]
 [ext_resource type="PackedScene" uid="uid://bdttc3n6yvgy0" path="res://Interactables/Hazards/spike_trap.tscn" id="4_gdwsc"]
@@ -15,6 +16,7 @@
 
 [node name="Level_1" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_vk6mg")
 
 [node name="GUI" parent="." instance=ExtResource("1_nv252")]
 

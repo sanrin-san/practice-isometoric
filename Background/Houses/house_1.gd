@@ -14,6 +14,7 @@ func _input(event: InputEvent) -> void:
 
 func _on_player_detector_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		PlayerData.player_position = body.position
 		player_entered = true
 		$door_label.visible = true
 
@@ -21,3 +22,7 @@ func _on_player_detector_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		player_entered = false
 		$door_label.visible = false
+
+func _on_change_level_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		get_tree().change_scene_to_file("res://Levels/level_2.tscn")
