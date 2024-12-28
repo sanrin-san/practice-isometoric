@@ -4,4 +4,7 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		get_tree().change_scene_to_packed(exit_scene)
+		call_deferred("_exit_scene")
+
+func _exit_scene() -> void:
+	get_tree().change_scene_to_packed(exit_scene)
