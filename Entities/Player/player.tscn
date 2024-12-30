@@ -732,6 +732,7 @@ script = ExtResource("1_3psyh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_pql2f")
+scale = Vector2(3, 3)
 texture = ExtResource("1_vy0me")
 offset = Vector2(0, -10)
 hframes = 8

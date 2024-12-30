@@ -4,6 +4,3 @@ extends Node2D
 
 func _ready() -> void:
 	player.position = PlayerData.player_position
-
-func _process(delta: float) -> void:
-	pass

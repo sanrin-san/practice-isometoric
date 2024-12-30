@@ -49,7 +49,7 @@ editor_draw_limits = true
 position = Vector2(368, 16)
 
 [node name="Crates" parent="." instance=ExtResource("2_uv2ro")]
-position = Vector2(24, -16)
+position = Vector2(64, 85)
 
 [node name="Traps" type="Node2D" parent="."]
 

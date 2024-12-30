@@ -1,0 +1,7 @@
+keys,ja
+Text/11/text,Are you OK?
+Choice/12/text,answer1
+Choice/12/disabled_text,
+Text/13/text,???
+Choice/14/text,answer2
+Choice/14/disabled_text,

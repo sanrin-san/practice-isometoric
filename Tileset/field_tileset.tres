@@ -1,7 +1,9 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://b3nir2ldt7vie"]
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://b3nir2ldt7vie"]
 
 [ext_resource type="Texture2D" uid="uid://f64yrjlot6cq" path="res://Tileset/ground_tileset_1.png" id="1_tdqth"]
 [ext_resource type="Texture2D" uid="uid://boe8gyrbg7xc" path="res://Tileset/water_animated.png" id="2_yu78y"]
+[ext_resource type="Texture2D" uid="uid://be8ofd1ll7a0t" path="res://assets/tileset/floor (2).png" id="3_4wr34"]
+[ext_resource type="Texture2D" uid="uid://cxfhkpp864u0u" path="res://assets/tileset/wall1.png" id="3_kfdip"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8n121"]
 texture = ExtResource("1_tdqth")
@@ -167,6 +169,17 @@ texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g8a2u"]
+texture = ExtResource("3_kfdip")
+texture_region_size = Vector2i(55, 205)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(-6, 1)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ux6l1"]
+texture = ExtResource("3_4wr34")
+texture_region_size = Vector2i(100, 57)
+0:0/0 = 0
+
 [resource]
 tile_shape = 1
 tile_layout = 5
@@ -178,3 +191,5 @@ terrain_set_0/terrain_0/name = "Ground"
 terrain_set_0/terrain_0/color = Color(0.553276, 0.287697, 0.375802, 1)
 sources/0 = SubResource("TileSetAtlasSource_8n121")
 sources/1 = SubResource("TileSetAtlasSource_wncux")
+sources/4 = SubResource("TileSetAtlasSource_ux6l1")
+sources/2 = SubResource("TileSetAtlasSource_g8a2u")

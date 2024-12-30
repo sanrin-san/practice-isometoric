@@ -1,13 +1,25 @@
-[gd_scene load_steps=5 format=4 uid="uid://cfqinjqfw56fb"]
+[gd_scene load_steps=11 format=4 uid="uid://cfqinjqfw56fb"]
 
 [ext_resource type="TileSet" uid="uid://b3nir2ldt7vie" path="res://Tileset/field_tileset.tres" id="1_j3mly"]
+[ext_resource type="Script" path="res://Levels/level_2.gd" id="1_nfaky"]
+[ext_resource type="Script" path="res://Utils/player_camera.gd" id="1_sfrxp"]
 [ext_resource type="PackedScene" uid="uid://baxoo3b33rgag" path="res://Entities/Player/player.tscn" id="2_ckkn0"]
 [ext_resource type="Script" path="res://Utils/exit_level.gd" id="3_fprft"]
+[ext_resource type="Texture2D" uid="uid://dy7d33t20apq7" path="res://assets/Sprite1-1.png" id="4_vof75"]
+[ext_resource type="Texture2D" uid="uid://bumukjsr31v3j" path="res://assets/amina.png" id="5_xi6v0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqf05"]
 size = Vector2(46.2487, 20)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0err7"]
+radius = 16.0312
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sp6nw"]
+radius = 47.2652
+
 [node name="level_2" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_nfaky")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -2
@@ -22,12 +34,13 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 color = Color(0, 0, 0, 1)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="player_camera" type="Camera2D" parent="."]
 position = Vector2(144, 80)
-zoom = Vector2(4, 4)
+zoom = Vector2(2, 2)
+script = ExtResource("1_sfrxp")
 
 [node name="ground" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAALAAQAAAAAAAIAAAALAAMAAAACAAIAAAALAAIAAAACAAIAAAALAAEAAAACAAIAAAALAAAAAAACAAIAAAALAP//AAACAAIAAAAKAAQAAAAAAAIAAAAKAAMAAAACAAIAAAAKAAIAAAACAAIAAAAKAAEAAAACAAIAAAAKAAAAAAACAAIAAAAKAP//AAACAAIAAAAJAAQAAAACAAMAAAAJAAMAAAACAAIAAAAJAAIAAAACAAIAAAAJAAEAAAACAAIAAAAJAAAAAAACAAIAAAAJAP//AAACAAIAAAAIAAQAAAABAAMAAAAIAAMAAAACAAIAAAAIAAIAAAACAAIAAAAIAAEAAAACAAIAAAAIAAAAAAACAAIAAAAIAP//AAACAAIAAAAHAAQAAAAAAAIAAAAHAAMAAAACAAIAAAAHAAIAAAACAAIAAAAHAAEAAAACAAIAAAAHAAAAAAACAAIAAAAHAP//AAACAAIAAAAGAAQAAAAAAAIAAAAGAAMAAAACAAIAAAAGAAIAAAACAAIAAAAGAAEAAAACAAIAAAAGAAAAAAACAAIAAAAGAP//AAACAAIAAAAFAAQAAAAAAAAAAAAFAAMAAAABAAAAAAAFAAIAAAABAAAAAAAFAAEAAAABAAAAAAAFAAAAAAABAAAAAAAFAP//AAABAAAAAAAMAAQAAAACAAEAAAAMAAMAAAABAAIAAAAMAAIAAAABAAIAAAAMAAEAAAABAAIAAAAMAAAAAAABAAIAAAAMAP//AAABAAIAAAAMAP7/AAABAAIAAAALAP7/AAACAAIAAAAKAP7/AAACAAIAAAAJAP7/AAACAAIAAAAIAP7/AAACAAIAAAAHAP7/AAACAAIAAAAGAP7/AAACAAIAAAAFAP7/AAABAAAAAAAMAP3/AAACAAAAAAALAP3/AAABAAEAAAAKAP3/AAABAAEAAAAJAP3/AAABAAEAAAAIAP3/AAABAAEAAAAHAP3/AAABAAEAAAAGAP3/AAABAAEAAAAFAP3/AAAAAAEAAAAJAAUAAAACAAEAAAAIAAUAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAHAP3/BAAAAAAAAAAKAP3/BAAAAAAAAAAHAPr/BAAAAAAAAAAKAPr/BAAAAAAAAAANAPr/BAAAAAAAAAANAP3/BAAAAAAAAAAHAAAABAAAAAAAAAAKAAAABAAAAAAAAAANAAMABAAAAAAAAAANAAAABAAAAAAAAAAKAAMABAAAAAAAAAAHAAMABAAAAAAAAAAJAAYABAAAAAAAAAAAAP7/AgAAAAAAAAAAAPv/AgAAAAAAAAAAAPj/AgAAAAAAAAAAAPX/AgAAAAAAAAA=")
 tile_set = ExtResource("1_j3mly")
 
 [node name="Player" parent="." instance=ExtResource("2_ckkn0")]
@@ -42,4 +55,35 @@ position = Vector2(-12, 16)
 rotation = 0.453786
 shape = SubResource("RectangleShape2D_vqf05")
 
+[node name="Sprite1-1" type="Sprite2D" parent="."]
+position = Vector2(263, 186)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_vof75")
+
+[node name="Sprite1-2" type="Sprite2D" parent="."]
+position = Vector2(344, 204)
+texture = ExtResource("4_vof75")
+
+[node name="Amina" type="CharacterBody2D" parent="."]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Amina"]
+position = Vector2(220, 0)
+texture = ExtResource("5_xi6v0")
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Amina"]
+position = Vector2(217, 35)
+shape = SubResource("CircleShape2D_0err7")
+
+[node name="Intaract" type="Area2D" parent="Amina"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Amina/Intaract"]
+position = Vector2(217, 35)
+shape = SubResource("CircleShape2D_sp6nw")
+debug_color = Color(0.72804, 0.447575, 0.434192, 0.42)
+
 [connection signal="body_entered" from="exit_level" to="exit_level" method="_on_body_entered"]
+[connection signal="area_entered" from="Amina/Intaract" to="." method="_on_intaract_area_entered"]
+[connection signal="area_exited" from="Amina/Intaract" to="." method="_on_intaract_area_exited"]
