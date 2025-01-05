@@ -40,7 +40,7 @@ zoom = Vector2(2, 2)
 script = ExtResource("1_sfrxp")
 
 [node name="ground" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAHAP3/BAAAAAAAAAAKAP3/BAAAAAAAAAAHAPr/BAAAAAAAAAAKAPr/BAAAAAAAAAANAPr/BAAAAAAAAAANAP3/BAAAAAAAAAAHAAAABAAAAAAAAAAKAAAABAAAAAAAAAANAAMABAAAAAAAAAANAAAABAAAAAAAAAAKAAMABAAAAAAAAAAHAAMABAAAAAAAAAAJAAYABAAAAAAAAAAAAP7/AgAAAAAAAAAAAPv/AgAAAAAAAAAAAPj/AgAAAAAAAAAAAPX/AgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAHAP3/BAAAAAAAAAAKAP3/BAAAAAAAAAAHAPr/BAAAAAAAAAAKAPr/BAAAAAAAAAANAPr/BAAAAAAAAAANAP3/BAAAAAAAAAAHAAAABAAAAAAAAAAKAAAABAAAAAAAAAANAAMABAAAAAAAAAANAAAABAAAAAAAAAAKAAMABAAAAAAAAAAHAAMABAAAAAAAAAAJAAYABAAAAAAAAAAAAP7/AgAAAAAAAAAAAPv/AgAAAAAAAAAAAPj/AgAAAAAAAAAAAPX/AgAAAAAAAAACAPP/AgAAAAAAABAFAPP/AgAAAAAAABAIAPP/AgAAAAAAABA=")
 tile_set = ExtResource("1_j3mly")
 
 [node name="Player" parent="." instance=ExtResource("2_ckkn0")]
@@ -58,10 +58,6 @@ shape = SubResource("RectangleShape2D_vqf05")
 [node name="Sprite1-1" type="Sprite2D" parent="."]
 position = Vector2(263, 186)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_vof75")
-
-[node name="Sprite1-2" type="Sprite2D" parent="."]
-position = Vector2(344, 204)
 texture = ExtResource("4_vof75")
 
 [node name="Amina" type="CharacterBody2D" parent="."]
@@ -83,6 +79,12 @@ collision_layer = 4
 position = Vector2(217, 35)
 shape = SubResource("CircleShape2D_sp6nw")
 debug_color = Color(0.72804, 0.447575, 0.434192, 0.42)
+
+[node name="Sprite1-2" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(257, 55)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_vof75")
 
 [connection signal="body_entered" from="exit_level" to="exit_level" method="_on_body_entered"]
 [connection signal="area_entered" from="Amina/Intaract" to="." method="_on_intaract_area_entered"]
