@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://cgjimgmqp5iic"]
+
+[ext_resource type="Texture2D" uid="uid://cblp736t8lf6m" path="res://assets/images/character/amina/base.png" id="1_owgud"]
+[ext_resource type="Texture2D" uid="uid://cu64sthp6vqoi" path="res://assets/images/character/amina/normal.png" id="2_tyf3k"]
+[ext_resource type="Texture2D" uid="uid://dxk1ahyggskwo" path="res://assets/images/character/amina/smile2.png" id="3_3url3"]
+[ext_resource type="Texture2D" uid="uid://b85rrtkrb87v7" path="res://assets/images/character/amina/under.png" id="4_58wxv"]
+[ext_resource type="Texture2D" uid="uid://de33ibqklg510" path="res://assets/images/character/amina/one-piece.png" id="5_kqwpn"]
+[ext_resource type="Texture2D" uid="uid://blsvlnq8k305h" path="res://assets/images/character/amina/outer.png" id="6_4qlx1"]
+
+[sub_resource type="GDScript" id="GDScript_8nkql"]
+script/source = "@tool
+extends \"res://addons/dialogic/Modules/LayeredPortrait/layered_portrait.gd\"
+"
+
+[node name="LayeredPortrait" type="CanvasGroup"]
+script = SubResource("GDScript_8nkql")
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = ExtResource("1_owgud")
+
+[node name="Face" type="Node2D" parent="."]
+
+[node name="normal" type="Sprite2D" parent="Face"]
+texture = ExtResource("2_tyf3k")
+metadata/_edit_group_ = true
+
+[node name="smile2" type="Sprite2D" parent="Face"]
+visible = false
+texture = ExtResource("3_3url3")
+
+[node name="Cloth" type="Node2D" parent="."]
+
+[node name="under" type="Sprite2D" parent="Cloth"]
+texture = ExtResource("4_58wxv")
+
+[node name="one-piece" type="Sprite2D" parent="Cloth"]
+texture = ExtResource("5_kqwpn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cloth"]
+visible = false
+texture = ExtResource("6_4qlx1")

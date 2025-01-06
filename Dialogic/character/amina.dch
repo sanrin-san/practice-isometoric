@@ -1,12 +1,12 @@
 {
 "@path": "res://addons/dialogic/Resources/character.gd",
 "@subpath": NodePath(""),
-"_translation_id": "15",
+"_translation_id": "",
 "color": Color(1, 1, 1, 1),
 "custom_info": {
 "sound_mood_default": "",
 "sound_moods": {},
-"style": "New_File"
+"style": ""
 },
 "default_portrait": "Default",
 "description": "",
@@ -17,21 +17,12 @@
 "portraits": {
 "Default": {
 "export_overrides": {
-"image": "\"res://assets/images/character/amina/base.png\""
+"image": ""
 },
 "mirror": false,
 "offset": Vector2(0, 0),
-"scale": 1.0,
-"scene": "res://Dialogic/character/portrait/amina/default.tscn"
-},
-"smile2": {
-"export_overrides": {
-"image": "\"res://assets/images/character/amina/smile_2.png\""
-},
-"mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1.0,
-"scene": "res://Dialogic/character/portrait/amina/smile2.tscn"
+"scale": 1,
+"scene": "res://Dialogic/character/portrait/amina.tscn"
 }
 },
 "scale": 1.0

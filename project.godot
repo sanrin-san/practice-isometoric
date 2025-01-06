@@ -23,7 +23,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
-"amina": "res://Dialogic/character/portrait/amina.dch"
+"character/amina": "res://Dialogic/character/amina.dch"
 }
 directories/dtl_directory={
 "test": "res://Dialogic/timeline/test.dtl"
@@ -67,6 +67,7 @@ translation/intern/file_mode=1
 translation/intern/translation_folder="res://Dialogic/translate"
 translation/id_counter=21
 translation/locales=[]
+glossary/glossary_files=[]
 
 [display]
 

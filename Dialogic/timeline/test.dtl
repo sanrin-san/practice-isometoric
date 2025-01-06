@@ -1,12 +1,12 @@
-join amina (Default) right [animation="Fade In"]
-amina: こんにちは！ #id:11
+join character/amina (Default) right [animation="Fade In"]
+character/amina: こんにちは！ #id:11
 label ラベル1 (label1)
 - こんにちは #id:12
 - ・・・ #id:14
-	amina: こんにちはー！！
+	character/amina: こんにちはー！！
 	jump test/ラベル1
-amina: あなたの名前を教えて？
+character/amina: あなたの名前を教えて？
 [text_input var="player_name"]
-update amina (smile2)
-amina: {player_name}さんって言うのね。\
+update character/amina [extra_data="set Face/smile2"]
+character/amina: {player_name}さんって言うのね。\
 教えてくれてありがとう！
