@@ -1,0 +1,16 @@
+# 全裸判定
+if {amina.underwear}  ==  "" and {amina.cloth}  ==  "" and {amina.outer}  ==  "":
+	set {amina.naked} = true
+join character/amina right [animation="Fade In" length="0.0"]
+label naked
+if {amina.naked} == true:
+	update character/amina [length="0.0" extra_data="set Underwear/none"]
+	return
+label underwear
+if {amina.underwear} == "favorite":
+	update character/amina [extra_data="set Underwear/favorite"]
+label cloth
+if {amina.cloth} == "one-piece":
+	update character/amina [length="0.0" extra_data="set Cloth/one-piece"]
+label outer
+return

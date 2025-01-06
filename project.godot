@@ -26,9 +26,10 @@ directories/dch_directory={
 "character/amina": "res://Dialogic/character/amina.dch"
 }
 directories/dtl_directory={
+"set_amina_cloth": "res://Dialogic/timeline/set_amina_cloth.dtl",
 "test": "res://Dialogic/timeline/test.dtl"
 }
-layout/style_list=["res://Dialogic/New_File.tres"]
+layout/style_list=[]
 layout/default_style="res://Dialogic/New_File.tres"
 glossary/default_case_sensitive=true
 extensions_folder="res://addons/dialogic_additions"
@@ -52,6 +53,12 @@ save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
 variables={
+"amina": {
+"cloth": "",
+"naked": false,
+"outer": "",
+"underwear": "favorite"
+},
 "player_name": "default"
 }
 animations/join_default="Fade In"
