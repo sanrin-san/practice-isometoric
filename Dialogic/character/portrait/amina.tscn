@@ -22,7 +22,6 @@ visible = false
 texture = ExtResource("3_46ign")
 
 [node name="favorite" type="Sprite2D" parent="Underwear"]
-visible = false
 texture = ExtResource("4_58wxv")
 
 [node name="Cloth" type="Node2D" parent="."]
@@ -31,11 +30,11 @@ texture = ExtResource("4_58wxv")
 visible = false
 texture = ExtResource("5_kqwpn")
 
-[node name="outer" type="Sprite2D" parent="Cloth"]
+[node name="Outer" type="Node2D" parent="."]
+
+[node name="favorite" type="Sprite2D" parent="Outer"]
 visible = false
 texture = ExtResource("6_4qlx1")
-
-[node name="Outer" type="Node2D" parent="."]
 
 [node name="Face" type="Node2D" parent="."]
 
